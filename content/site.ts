@@ -60,28 +60,3 @@ export const experience = [
     ],
   },
 ];
-
-/** Giải thưởng và chứng nhận. Chỉ ghi những gì có giấy tờ hoặc bạn đã xác nhận. */
-export const awards: { title: string; org: string; when: string; href?: string }[] = [
-  {
-    title: "Winner, The Springboard Challenge",
-    org: "FWD Insurance Vietnam · Summer Internship 2026 · team “Những Chú Ô”",
-    when: "2026",
-    href: "/projects/fwd-foresight",
-  },
-];
-
-export const certificates: { title: string; org: string; when: string; src: string }[] = [
-  {
-    title: "Certificate of presentation",
-    org: "ICDAM-2026, 7th International Conference on Data Analytics and Management",
-    when: "12–14 June 2026",
-    src: "/research/icdam-2026-certificate.jpg",
-  },
-  {
-    title: "Certificate of appreciation",
-    org: "INDEA-2026, University of Salford",
-    when: "21–22 August 2026",
-    src: "/research/indea-2026-certificate.jpg",
-  },
-];

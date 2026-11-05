@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { site, about, skills, education, experience, awards, certificates } from "@/content/site";
+import { site, about, skills, education, experience } from "@/content/site";
+import { credentials } from "@/content/credentials";
+import { CredentialCard } from "@/components/CredentialCard";
 import { projects } from "@/content/projects";
 import { papers } from "@/content/research";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -61,14 +63,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="wrap section two">
+      <section id="about" className="wrap section"><div className="panel two">
         <h2 className="h-sec">About</h2>
         <div className="prose">
           {about.paragraphs.map((t, i) => <p key={i}><Text>{t}</Text></p>)}
         </div>
-      </section>
+      </div></section>
 
-      <section id="skills" className="wrap section two">
+      <section id="skills" className="wrap section"><div className="panel two">
         <h2 className="h-sec">Skills</h2>
         <div className="skills">
           {skills.map((g) => (
@@ -78,9 +80,9 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </div></section>
 
-      <section className="wrap section two">
+      <section id="experience" className="wrap section"><div className="panel two">
         <h2 className="h-sec">Experience & education</h2>
         <div className="timeline">
           {experience.map((e) => (
@@ -104,41 +106,20 @@ export default function Home() {
             </article>
           ))}
         </div>
-      </section>
+      </div></section>
 
-      <section id="awards" className="wrap section two">
+      <section id="awards" className="wrap section">
         <h2 className="h-sec">Certificates &amp; awards</h2>
-        <div>
-          <div className="timeline">
-            {awards.map((a) => (
-              <article key={a.title}>
-                <div className="t-when">{a.when}</div>
-                <div>
-                  <h3>{a.href ? <Link href={a.href}>{a.title}</Link> : a.title}</h3>
-                  <div className="t-org">{a.org}</div>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="certs">
-            {certificates.map((c) => (
-              <figure key={c.src}>
-                <a href={c.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${c.title}, ${c.org}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.src} alt={`${c.title}: ${c.org}`} width={1372} height={1043} loading="lazy" />
-                </a>
-                <figcaption>
-                  <strong>{c.title}</strong>
-                  <span>{c.org}</span>
-                  <span>{c.when}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+        <p className="sec-sub">Competitions and conferences from 2026.</p>
+        <div className="cred-grid">
+          {credentials.map((c) => <CredentialCard key={c.slug} c={c} />)}
+        </div>
+        <div className="center">
+          <Link href="/certificates" className="btn btn-primary">See all certificates &amp; awards</Link>
         </div>
       </section>
 
-      <section id="contact" className="wrap section two">
+      <section id="contact" className="wrap section"><div className="panel two">
         <h2 className="h-sec">Contact</h2>
         <div>
           <p className="prose-p">Happy to talk about internships, projects or research.</p>
@@ -148,7 +129,7 @@ export default function Home() {
             <Contact label="GitHub" value={links.github} />
           </ul>
         </div>
-      </section>
+      </div></section>
     </>
   );
 }

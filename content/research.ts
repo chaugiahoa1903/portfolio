@@ -19,7 +19,7 @@ export const papers: Project[] = [
     venue: "7th International Conference on Data Analytics and Management (ICDAM-2026), organised by London Metropolitan University with WSG University, Portalegre Polytechnic University and the SGGW Management Institute.",
     authors: COAUTHORS,
     authorsNote: AUTHORS_NOTE,
-    role: "Team leader and presenter; second of five authors. [[Say what you led, e.g. planned the work, ran the fine-tuning experiments, wrote the results section.]]",
+    role: "Team leader and presenter. Second of five authors; presented the paper at ICDAM-2026.",
     summary:
       "We fine-tuned PhoBERT, ViDeBERTa and XLM-R with one identical pipeline to assign Vietnamese legal text to the right law, then compared them on accuracy, F1 and real example questions.",
     problem: [
@@ -61,7 +61,7 @@ export const papers: Project[] = [
     venue: "International Conference on Next-Generation Data Engineering and Analytics (INDEA-2026), University of Salford, Manchester, UK, with Universal Innovators.",
     authors: COAUTHORS,
     authorsNote: AUTHORS_NOTE,
-    role: "Team leader and presenter; second of five authors. [[Say what you led, e.g. planned the work, built the Docker Swarm setup, ran the benchmarks.]]",
+    role: "Team leader and presenter. Second of five authors; led the revision after peer review, including the response to the reviewers, and presented the paper at INDEA-2026.",
     summary:
       "A follow-up to the classification study: we deployed the best model as a FastAPI service and benchmarked a single container against three replicas behind an Nginx load balancer, looking at throughput, latency and CPU use.",
     problem: [
