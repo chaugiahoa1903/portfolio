@@ -6,9 +6,7 @@ export const site = {
   title: "Châu Gia Hòa — Data Science student",
   description:
     "Final-year Data Science student at UEH working on NLP, analytics and applied AI. Case studies with live demos and code.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000"),
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://chaugiahoa.vercel.app",
   location: "Ho Chi Minh City, Vietnam",
   headline: "Data science student building NLP, analytics and AI systems.",
   intro:
