@@ -53,8 +53,8 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
 .cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 8px; }
 .btn { display: inline-flex; align-items: center; padding: 10px 18px; border: 1.5px solid var(--ink); border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14.5px; transition: transform .15s, background .15s; }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--ink); color: var(--bg); }
-.btn-off { border-style: dashed; color: var(--muted); font-weight: 500; }
+.site .btn-primary { background: var(--ink); color: var(--bg); }
+.site .btn-off { border-style: dashed; color: var(--muted); font-weight: 500; }
 
 /* sections */
 .section { padding-top: 72px; padding-bottom: 8px; }
@@ -197,6 +197,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
 
 /* ── papers & research ── */
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-cat { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
 .card-venue { font-size: 13px; color: var(--muted); }
 .h1-long { font-size: clamp(26px, 3.2vw, 38px) !important; line-height: 1.15; }
 .strip-wide { grid-column: 1 / -1; }

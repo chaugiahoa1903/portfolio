@@ -8,9 +8,9 @@ export function ProjectCard({ p, base = "projects" }: { p: Project; base?: "proj
       <span className="card-img">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={p.cover} alt={`${p.shortTitle ?? p.title} cover`} width={1600} height={900} loading="lazy" />
-        {base === "projects" && <span className="badge">{p.category}</span>}
       </span>
       <span className="card-body">
+        {base === "projects" && <span className="card-cat">{p.category}</span>}
         <span className="card-title">{p.shortTitle ?? p.title}</span>
         <span className="card-kicker">{p.kicker}</span>
         {base === "research" && <span className="card-venue">{p.period}</span>}
