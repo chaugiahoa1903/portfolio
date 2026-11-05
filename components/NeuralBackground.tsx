@@ -72,8 +72,7 @@ export default function NeuralBackground() {
         const y0 = Math.floor(p.y / CELL) * CELL; // rơi theo từng bậc
         for (const [cx, cy] of p.cells) {
           const x = p.x + cx * CELL, y = y0 + cy * CELL;
-          const d = Math.hypot(x + CELL / 2 - mouse.x, y + CELL / 2 - mouse.y);
-          const glow = d < 150 ? 1 - d / 150 : 0;
+                    const glow = 0; // không sáng lên theo con trỏ
           const rgb = col[p.c];
           ctx.fillStyle = `rgba(${rgb}, ${(0.1 + glow * 0.5).toFixed(3)})`;
           ctx.fillRect(x + 1, y + 1, CELL - 2, CELL - 2);

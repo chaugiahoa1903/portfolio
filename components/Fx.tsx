@@ -2,10 +2,9 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-const GLOW = ".panel,.skill-card,.tl-card,.card,.cred,.hero-contact";
 const MAG = ".btn,.hbtn";
 
-/** Hiệu ứng toàn trang: thanh tiến độ cuộn, ánh sáng theo con trỏ, nút "hút" con trỏ, hiện dần khi cuộn. */
+/** Hiệu ứng toàn trang: thanh tiến độ cuộn, nút "hút" con trỏ, hiện dần khi cuộn. */
 export default function Fx() {
   const bar = useRef<HTMLDivElement>(null);
   const path = usePathname();
@@ -21,12 +20,6 @@ export default function Fx() {
     const onMove = (e: PointerEvent) => {
       const t = e.target as Element | null;
       if (!t || !t.closest) return;
-      const g = t.closest<HTMLElement>(GLOW);
-      if (g) {
-        const r = g.getBoundingClientRect();
-        g.style.setProperty("--mx", `${e.clientX - r.left}px`);
-        g.style.setProperty("--my", `${e.clientY - r.top}px`);
-      }
       if (!reduce && e.pointerType === "mouse") {
         const m = t.closest<HTMLElement>(MAG);
         if (m) {
