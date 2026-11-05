@@ -1,16 +1,21 @@
 import Link from "next/link";
-import { site, about, skills, education, experience } from "@/content/site";
+import { site, about, skills, education, experience, awards, certificates } from "@/content/site";
 import { projects } from "@/content/projects";
 import { papers } from "@/content/research";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Text, isTodo } from "@/components/Text";
 import NeuralBackground from "@/components/NeuralBackground";
 
+const pretty = (v: string) => {
+  const t = v.replace(/^https?:\/\/(www\.)?/, "");
+  try { return decodeURIComponent(t); } catch { return t; }
+};
+
 function Contact({ label, value, href }: { label: string; value: string; href?: string }) {
   return isTodo(value) ? (
     <li><span className="c-label">{label}</span><span><Text>{value}</Text></span></li>
   ) : (
-    <li><span className="c-label">{label}</span><a href={href ?? value}>{value.replace(/^https?:\/\/(www\.)?/, "")}</a></li>
+    <li><span className="c-label">{label}</span><a href={href ?? value}>{pretty(value)}</a></li>
   );
 }
 
@@ -98,6 +103,38 @@ export default function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="awards" className="wrap section two">
+        <h2 className="h-sec">Certificates &amp; awards</h2>
+        <div>
+          <div className="timeline">
+            {awards.map((a) => (
+              <article key={a.title}>
+                <div className="t-when">{a.when}</div>
+                <div>
+                  <h3>{a.href ? <Link href={a.href}>{a.title}</Link> : a.title}</h3>
+                  <div className="t-org">{a.org}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="certs">
+            {certificates.map((c) => (
+              <figure key={c.src}>
+                <a href={c.src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${c.title}, ${c.org}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={c.src} alt={`${c.title}: ${c.org}`} width={1372} height={1043} loading="lazy" />
+                </a>
+                <figcaption>
+                  <strong>{c.title}</strong>
+                  <span>{c.org}</span>
+                  <span>{c.when}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

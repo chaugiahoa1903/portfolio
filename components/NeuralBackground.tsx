@@ -132,6 +132,11 @@ export default function NeuralBackground() {
 
     const onMove = (e: MouseEvent) => { mouse.x = e.clientX; mouse.y = e.clientY; };
     const onLeave = () => { mouse.x = -9999; mouse.y = -9999; };
+    // đậm ở đầu trang, mờ dần khi cuộn để không làm rối phần nội dung
+    const onScroll = () => {
+      const o = Math.max(0.2, 1 - window.scrollY / (window.innerHeight * 0.85));
+      canvas.style.opacity = o.toFixed(2);
+    };
     const onVis = () => {
       running = !document.hidden;
       cancelAnimationFrame(raf);
@@ -141,7 +146,9 @@ export default function NeuralBackground() {
     const onScheme = () => readColor();
 
     resize();
+    onScroll();
     frame();
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", onMove, { passive: true });
     document.addEventListener("mouseleave", onLeave);
@@ -152,6 +159,7 @@ export default function NeuralBackground() {
       running = false;
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("visibilitychange", onVis);

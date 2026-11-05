@@ -229,3 +229,12 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
   .brand { font-size: 17px; }
   .header-in { flex-wrap: wrap; height: auto; padding: 10px 0; row-gap: 2px; }
 }
+
+/* chứng nhận */
+.certs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.certs figure { margin: 0; }
+.certs img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 12px; transition: transform .2s, box-shadow .2s; }
+.certs a:hover img { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.14); }
+.certs figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; font-size: 13.5px; color: var(--muted); }
+.certs figcaption strong { color: var(--ink); font-size: 14.5px; }
+@media (max-width: 700px) { .certs { grid-template-columns: 1fr; } }
