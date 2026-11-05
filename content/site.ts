@@ -14,8 +14,8 @@ export const site = {
   openTo: "Open to internships and entry-level roles in data, AI and analytics.",
   /* Foresight là app riêng (repo riêng, deploy riêng). Điền hai link sau khi deploy xong. */
   foresight: {
-    demo: "[[https://your-foresight-demo.vercel.app]]",
-    repo: "[[https://github.com/chaugiahoa1903/foresight-demo]]",
+    demo: "https://foresight-demo-pied.vercel.app",
+    repo: "https://github.com/chaugiahoa1903/foresight-demo",
   },
   links: {
     github: "https://github.com/chaugiahoa1903",
