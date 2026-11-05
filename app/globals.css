@@ -640,3 +640,8 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
 }
 /* bỏ ánh sáng theo con trỏ */
 .panel::before, .tl-card::before, .skill-card::before, .cred::before, .card::before, .hero-contact::before { display: none !important; }
+
+/* logo = mascot pixel */
+.brand .logo { width: 38px; height: 38px; padding: 3px; background: linear-gradient(135deg, var(--accent2), var(--accent)); display: inline-grid; place-items: center; }
+.brand .logo img { width: 100%; height: 100%; display: block; image-rendering: pixelated; background: #2d2d2d; }
+:root[data-theme="light"] .brand .logo img { background: #2d2d2d; }

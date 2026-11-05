@@ -7,7 +7,7 @@ export function Header() {
     <header className="header">
       <div className="wrap header-in">
         <Link href="/" className="brand" aria-label={site.name}>
-          <span className="logo" aria-hidden="true"><b>GH</b><i /></span>
+          <span className="logo" aria-hidden="true"><img src="/mascot.png" alt="" width={28} height={28} /></span>
           <span>{site.shortName}</span>
         </Link>
         <HeaderTools />
