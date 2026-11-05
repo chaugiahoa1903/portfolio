@@ -13,7 +13,6 @@ export function Header() {
           <Link href="/#projects">Projects</Link>
           <Link href="/#research">Research</Link>
           <Link href="/#awards">Awards</Link>
-          <Link href="/#contact">Contact</Link>
         </nav>
       </div>
     </header>

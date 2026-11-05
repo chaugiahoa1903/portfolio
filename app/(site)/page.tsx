@@ -9,10 +9,6 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Text, isTodo } from "@/components/Text";
 import NeuralBackground from "@/components/NeuralBackground";
 
-const pretty = (v: string) => {
-  const t = v.replace(/^https?:\/\/(www\.)?/, "");
-  try { return decodeURIComponent(t); } catch { return t; }
-};
 
 const Ic = {
   folder: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>,
@@ -21,14 +17,6 @@ const Ic = {
   linkedin: <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.82-1.85 3.75-1.85 4 0 4.75 2.5 4.75 5.75v5.6h-4v-5c0-1.2 0-2.75-1.7-2.75s-1.95 1.3-1.95 2.65v5.1h-4z" /></svg>,
   pin: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>,
 };
-
-function Contact({ label, value, href }: { label: string; value: string; href?: string }) {
-  return isTodo(value) ? (
-    <li><span className="c-label">{label}</span><span><Text>{value}</Text></span></li>
-  ) : (
-    <li><span className="c-label">{label}</span><a href={href ?? value}>{pretty(value)}</a></li>
-  );
-}
 
 export default function Home() {
   const { links } = site;
@@ -39,8 +27,10 @@ export default function Home() {
         <div className="hero-text">
           <p className="eyebrow">{site.name} · {site.location}</p>
           <h1>{site.headline}</h1>
-          <p className="lead">{site.intro}</p>
-          <p className="open">{site.openTo}</p>
+          <div className="panel hero-note">
+            <p className="lead">{site.intro}</p>
+            <p className="open">{site.openTo}</p>
+          </div>
           <div className="cta">
             <Link href="/#projects" className="btn btn-primary">{Ic.folder} See the projects</Link>
             {links.resume && <a href={links.resume} className="btn">Résumé (PDF)</a>}
@@ -135,18 +125,6 @@ export default function Home() {
           <Link href="/certificates" className="btn btn-primary">See all certificates &amp; awards</Link>
         </div>
       </section>
-
-      <section id="contact" className="wrap section"><div className="panel two">
-        <h2 className="h-sec">Contact</h2>
-        <div>
-          <p className="prose-p">Happy to talk about internships, projects or research.</p>
-          <ul className="contacts">
-            <Contact label="Email" value={links.email} href={`mailto:${links.email}`} />
-            <Contact label="LinkedIn" value={links.linkedin} />
-            <Contact label="GitHub" value={links.github} />
-          </ul>
-        </div>
-      </div></section>
     </>
   );
 }
