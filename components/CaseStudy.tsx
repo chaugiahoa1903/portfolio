@@ -26,6 +26,7 @@ function Authors({ names }: { names: string[] }) {
 
 export function CaseStudy({ p, kind, backHref, backLabel, next }: Props) {
   const paper = kind === "paper";
+  const hasLearn = Boolean(p.learnings || p.next);
   const statusClass = p.status.replace(" ", "-").toLowerCase();
 
   return (
@@ -79,32 +80,55 @@ export function CaseStudy({ p, kind, backHref, backLabel, next }: Props) {
         </dl>
 
         <div className="body">
-          <h2>{paper ? "Why this study" : "The problem"}</h2>
-          {p.problem.map((t, k) => <p key={k}><Text>{t}</Text></p>)}
+          <section className="panel cs" aria-label="Case study">
+            <h2 className="cs-title">Case study</h2>
+            <div className="cs-grid">
+              <div>
+                <h3 className="cs-h"><span className="n">1</span>Context / Problem</h3>
+                {p.problem.map((t, k) => <p key={k}><Text>{t}</Text></p>)}
 
-          <h2>{paper ? "What we did" : "My work"}</h2>
-          <p className="role"><strong>{paper ? "My role:" : "Role:"}</strong> <Text>{p.role}</Text></p>
-          <ul>{p.approach.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>
+                <h3 className="cs-h"><span className="n">2</span>My role</h3>
+                <p><Text>{p.role}</Text></p>
 
-          {p.highlights && (
-            <div className="stats">
-              {p.highlights.map((h) => (
-                <div key={h.label}><div className="stat-v">{h.value}</div><div className="stat-l">{h.label}</div></div>
-              ))}
-            </div>
-          )}
+                <h3 className="cs-h"><span className="n">3</span>Approach</h3>
+                <ul>{p.approach.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>
+              </div>
+              <div>
+                <h3 className="cs-h"><span className="n">4</span>Result / Impact</h3>
+                {p.highlights && (
+                  <div className="stats">
+                    {p.highlights.map((h) => (
+                      <div key={h.label}><div className="stat-v">{h.value}</div><div className="stat-l">{h.label}</div></div>
+                    ))}
+                  </div>
+                )}
+                <ul>{p.results.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>
 
-          <div className="two-col">
-            <div>
-              <h2>{paper ? "Key findings" : "Outcome / Impact"}</h2>
-              <ul>{p.results.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>
-              {p.next && (<><h3 className="h3">What&apos;s next</h3><ul>{p.next.map((t, k) => <li key={k}>{t}</li>)}</ul></>)}
+                {hasLearn && (
+                  <>
+                    <h3 className="cs-h"><span className="n">5</span>Learnings</h3>
+                    {p.learnings && <ul>{p.learnings.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>}
+                    {p.next && (<><h4 className="cs-sub">What&apos;s next</h4><ul>{p.next.map((t, k) => <li key={k}>{t}</li>)}</ul></>)}
+                  </>
+                )}
+
+                <h3 className="cs-h"><span className="n">{hasLearn ? 6 : 5}</span>Links</h3>
+                {p.links.length ? (
+                  <ul className="cs-links">
+                    {p.links.map((l) => (
+                      <li key={l.label}>
+                        {isTodo(l.href)
+                          ? <Text>{l.href.startsWith("[[") ? `${l.label}: ${l.href}` : `[[${l.label}: add link]]`}</Text>
+                          : l.href.startsWith("/")
+                            ? <Link href={l.href}>{l.label} →</Link>
+                            : <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label} ↗</a>}
+                      </li>
+                    ))}
+                  </ul>
+                ) : <p>No public links yet.</p>}
+              </div>
             </div>
-            <div>
-              <h2>Tech / Skills</h2>
-              <div className="tags">{p.stack.map((t) => <span key={t} className="tag">{t}</span>)}</div>
-            </div>
-          </div>
+          </section>
 
           {p.figures?.map((f) => (
             <figure className="fig" key={f.src}>

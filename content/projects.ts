@@ -27,6 +27,7 @@ export type Project = {
   results: string[];
   stack: string[];
   links: ProjectLink[];
+  learnings?: string[]; // điều học được, chỉ ghi điều bạn đã xác nhận
   next?: string[];
 };
 
@@ -103,7 +104,7 @@ export const projects: Project[] = [
     type: "Personal project · LLM application",
     period: "Oct 2026 – ongoing",
     status: "In progress",
-    role: "Solo project.",
+    role: "Solo project. An AI assistant drafted code and test questions; I set the business rules and thresholds, ran every reference query, and scored every round.",
     summary:
       "A Vietnamese question goes in; a local LLM writes SQL against AdventureWorks2022; the result lands in an Excel file. The part I care most about is the product spec behind it: what \"revenue\" means, which orders count, and what the system should do when a question is vague.",
     problem: [
@@ -115,13 +116,25 @@ export const projects: Project[] = [
       "Only shipped orders (Status = 5) count, because revenue is recognised on delivery. Quarters are calendar quarters.",
       "The model runs locally through Ollama and connects to SQL Server with a read-only login, so a bad query cannot change data.",
     ],
-    results: [
-      "Setup, database connection and PRD decisions are done. The test set of about 15 questions is being re-labelled and scored.",
-      "[[Add accuracy once you have scored the test set, e.g. N of 15 correct, and how many were correctly asked back.]]",
+    highlights: [
+      { label: "Test set", value: "70 questions, 9 groups" },
+      { label: "Baseline → final", value: "30/70 → 64/70 (lenient)" },
+      { label: "Holdout sets", value: "8/12 and 9/12" },
     ],
-    stack: ["Python", "pyodbc", "SQL Server", "Ollama", "Excel export"],
+    results: [
+      "Scored by comparing result tables with reference SQL, not SQL text. Starting from schema only, the baseline got 30 of 70 right. After business rules, date-range fixes, ask-back and a SELECT-only guard, the final round got 64 of 70 under lenient grading (58 of 70 strict), above the 70% target I set in the PRD.",
+      "On two held-out sets of 12 questions the system got 8 and 9 right. Holdout 1 stopped being fully independent once I fixed a failure I saw in it, and holdout 2 was drafted by AI, so I read these as a rough guide, not a clean estimate.",
+      "The ask-back target (at least 80% of ambiguous questions asked back correctly) was not met: 2 of 6 and 4 of 6 on the holdouts. In a manual trial of 10 questions through the interface, two vague date questions silently returned full-year revenue instead of Q1. A number that looks plausible but answers the wrong question is the failure I most want to remove.",
+      "Caveats: the labels are my own and not yet checked by a second person; the sample data contains only shipped orders, so the status filter is untested; there are no real users.",
+    ],
+    stack: ["Python", "FastAPI", "SQL Server", "Ollama (qwen2.5-coder 7b)", "pyodbc", "xlsxwriter"],
     links: [{ label: "Source on GitHub", href: "https://github.com/chaugiahoa1903/text2sql-adventureworks", primary: true }],
-    next: ["Finish scoring the test questions.", "Write up error analysis: which question types fail and why."],
+    learnings: [
+      "A confident wrong number is the dangerous failure. Asking back is better than guessing, and it has to be measured, not assumed.",
+      "Categories that reached 100% did so partly because I wrote the rules after seeing the answers. The holdout sets are the more honest measure.",
+      "A small local model still writes DELETE, UPDATE and DROP when asked, so the SELECT-only filter and a read-only login are required, not optional.",
+    ],
+    next: ["Improve ask-back, which missed its 80% target, starting with date-range questions that lack a year.", "Have a second person re-label a sample of the test questions.", "Promotion and repeat-customer analysis on AdventureWorks (descriptive only: the data has no vouchers and no control group)."],
   },
   {
     slug: "lendingclub-mix-shift",

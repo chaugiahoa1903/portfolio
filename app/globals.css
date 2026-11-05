@@ -541,3 +541,18 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
 .header nav a { color: color-mix(in srgb, var(--ink) 80%, transparent); }
 .fig figcaption, .cert figcaption { color: color-mix(in srgb, var(--ink) 88%, transparent); }
 .site .hero-contact a:hover, .site .sk-where a:hover, .header nav a:hover { color: var(--accent); }
+
+/* case study theo 6 mục */
+.panel.cs { padding: 32px 36px; }
+.cs-title { font: 700 22px var(--serif); letter-spacing: -0.03em; margin: 0 0 22px; }
+.cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 48px; }
+.cs-h { display: flex; align-items: center; gap: 12px; font: 700 16px var(--serif); letter-spacing: -0.02em; margin: 26px 0 10px; color: var(--ink); }
+.cs-h:first-child { margin-top: 0; }
+.cs-h .n { display: inline-grid; place-items: center; width: 26px; height: 26px; background: var(--accent); color: #000; font: 400 10px var(--pixel); box-shadow: 3px 3px 0 var(--accent2); flex: none; }
+.cs-grid p, .cs-grid li { color: color-mix(in srgb, var(--ink) 90%, transparent); max-width: none; }
+.cs-grid ul { padding-left: 18px; margin: 0 0 8px; }
+.cs-sub { font: 700 14px var(--serif); color: var(--accent2t); margin: 14px 0 6px; }
+.cs-links { list-style: none; padding-left: 0 !important; }
+.site .cs-links a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.cs .stats { margin: 0 0 14px; }
+@media (max-width: 860px) { .cs-grid { grid-template-columns: 1fr; } .panel.cs { padding: 24px 20px; } }
