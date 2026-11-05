@@ -1,0 +1,109 @@
+import Link from "next/link";
+import { site, about, skills, education, experience } from "@/content/site";
+import { projects } from "@/content/projects";
+import { papers } from "@/content/research";
+import { ProjectCard } from "@/components/ProjectCard";
+import { Text, isTodo } from "@/components/Text";
+
+function Contact({ label, value, href }: { label: string; value: string; href?: string }) {
+  return isTodo(value) ? (
+    <li><span className="c-label">{label}</span><span><Text>{value}</Text></span></li>
+  ) : (
+    <li><span className="c-label">{label}</span><a href={href ?? value}>{value.replace(/^https?:\/\/(www\.)?/, "")}</a></li>
+  );
+}
+
+export default function Home() {
+  const { links } = site;
+  return (
+    <>
+      <section className="hero wrap">
+        <p className="eyebrow">{site.name} · {site.location}</p>
+        <h1>{site.headline}</h1>
+        <p className="lead">{site.intro}</p>
+        <p className="open">{site.openTo}</p>
+        <div className="cta">
+          <Link href="/#projects" className="btn btn-primary">See the projects</Link>
+          {links.resume && <a href={links.resume} className="btn">Résumé (PDF)</a>}
+          <a href={links.github} className="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </section>
+
+      <section id="projects" className="wrap section">
+        <h2 className="h-sec">Selected projects</h2>
+        <p className="sec-sub">A focused selection. The full gallery has every project, paper and competition.</p>
+        <div className="grid">
+          {projects.filter((p) => p.featured).map((p) => <ProjectCard key={p.slug} p={p} />)}
+        </div>
+        <div className="center">
+          <Link href="/projects" className="btn btn-primary">Explore full gallery</Link>
+        </div>
+      </section>
+
+      <section id="research" className="wrap section">
+        <h2 className="h-sec">Papers &amp; research</h2>
+        <p className="sec-sub">Conference papers I co-authored and presented in 2026.</p>
+        <div className="grid grid-2">
+          {papers.map((p) => <ProjectCard key={p.slug} p={p} base="research" />)}
+        </div>
+      </section>
+
+      <section id="about" className="wrap section two">
+        <h2 className="h-sec">About</h2>
+        <div className="prose">
+          {about.paragraphs.map((t, i) => <p key={i}><Text>{t}</Text></p>)}
+        </div>
+      </section>
+
+      <section id="skills" className="wrap section two">
+        <h2 className="h-sec">Skills</h2>
+        <div className="skills">
+          {skills.map((g) => (
+            <div key={g.group}>
+              <h3>{g.group}</h3>
+              <ul>{g.items.map((i) => <li key={i}>{i}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="wrap section two">
+        <h2 className="h-sec">Experience & education</h2>
+        <div className="timeline">
+          {experience.map((e) => (
+            <article key={e.title}>
+              <div className="t-when">{e.when}</div>
+              <div>
+                <h3>{e.title}</h3>
+                <div className="t-org">{e.org}</div>
+                <ul>{e.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+              </div>
+            </article>
+          ))}
+          {education.map((e) => (
+            <article key={e.title}>
+              <div className="t-when">{e.when}</div>
+              <div>
+                <h3>{e.title}</h3>
+                <div className="t-org">{e.org}</div>
+                <p className="t-note">{e.note}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="wrap section two">
+        <h2 className="h-sec">Contact</h2>
+        <div>
+          <p className="prose-p">Happy to talk about internships, projects or research.</p>
+          <ul className="contacts">
+            <Contact label="Email" value={links.email} href={`mailto:${links.email}`} />
+            <Contact label="LinkedIn" value={links.linkedin} />
+            <Contact label="GitHub" value={links.github} />
+          </ul>
+        </div>
+      </section>
+    </>
+  );
+}
