@@ -27,15 +27,15 @@ export const site = {
 
 export const about = {
   intro:
-    "I study Data Science at UEH. I enjoy projects where the hard part is deciding what the right question is, then making the answer usable: a retrieval system that finds the right legal article, or a prototype that shows a customer what a risk would cost them.",
-  education: "BSc in Data Science (expected March 2027), University of Economics Ho Chi Minh City (UEH). GPA 3.58 / 4.0.",
+    "I study **Data Science** at UEH. I enjoy projects where the hard part is deciding **what the right question is**, then making the answer **usable**: a retrieval system that finds the right legal article, or a prototype that shows a customer what a risk would cost them.",
+  education: "**BSc in Data Science** (expected March 2027), University of Economics Ho Chi Minh City (UEH). **GPA 3.58 / 4.0**.",
   goals:
-    "Most of my work is in Python and SQL, with NLP for Vietnamese text as a recurring thread. After graduating I am looking for data roles where analysis meets real business decisions, such as analytics, credit risk or applied NLP.",
+    "Most of my work is in **Python and SQL**, with **NLP for Vietnamese text** as a recurring thread. After graduating I am looking for **data roles** where analysis meets real business decisions, such as analytics, credit risk or applied NLP.",
   strengths: [
-    "Leading a small team: team leader on two conference papers (ICDAM-2026 and INDEA-2026).",
-    "Turning an idea into a working product: FWD Foresight, from market research to a deployed prototype.",
-    "NLP for Vietnamese text: fine-tuning and comparing PhoBERT, ViDeBERTa and XLM-R; retrieval over legal documents.",
-    "Presenting technical work: presented at two international conferences in 2026.",
+    "**Leading a small team:** team leader on two conference papers (ICDAM-2026 and INDEA-2026).",
+    "**Turning an idea into a working product:** FWD Foresight, from market research to a deployed prototype.",
+    "**NLP for Vietnamese text:** fine-tuning and comparing PhoBERT, ViDeBERTa and XLM-R; retrieval over legal documents.",
+    "**Presenting technical work:** presented at two international conferences in 2026.",
   ],
 };
 
@@ -56,9 +56,9 @@ export const journey: Journey[] = [
     org: "University of Economics Ho Chi Minh City (UEH)",
     kind: "Education",
     points: [
-      "GPA 3.58 / 4.0.",
-      "Co-authored and presented two international conference papers (ICDAM-2026, INDEA-2026).",
-      "Winner, The Springboard Challenge 2026 (FWD Insurance Vietnam) with FWD Foresight.",
+      "**GPA 3.58 / 4.0.**",
+      "Co-authored and presented **two international conference papers** (ICDAM-2026, INDEA-2026).",
+      "**Winner, The Springboard Challenge 2026** (FWD Insurance Vietnam) with FWD Foresight.",
     ],
   },
   {
@@ -67,9 +67,9 @@ export const journey: Journey[] = [
     org: "FWD Insurance · Banca Compensation team",
     kind: "Experience",
     points: [
-      "Designed and analysed bancassurance incentive programs.",
-      "Built RFM + KMeans customer segmentation in Python.",
-      "Analysed K2 persistency in pandas and Jupyter.",
+      "Designed and analysed **bancassurance incentive programs**.",
+      "Built **RFM + KMeans** customer segmentation in Python.",
+      "Analysed **K2 persistency** in pandas and Jupyter.",
     ],
   },
 ];

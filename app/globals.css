@@ -331,3 +331,8 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
   .tl.anim .tl-card { transform: translateY(26px) !important; }
   .tl.anim .tl-item.in .tl-card { transform: none !important; }
 }
+
+/* nhấn mạnh bằng màu */
+.hl { font-weight: 600; color: var(--accent); }
+.tl-side .hl, .strengths .hl, .about-grid .hl { color: var(--accent); }
+.about-intro .hl { color: var(--ink); background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 28%, transparent) 62%); }

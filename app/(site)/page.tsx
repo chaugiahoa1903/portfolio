@@ -58,10 +58,27 @@ export default function Home() {
             </div>
             <div>
               <h3>Strengths</h3>
-              <ul className="strengths">{about.strengths.map((t) => <li key={t}>{t}</li>)}</ul>
+              <ul className="strengths">{about.strengths.map((t) => <li key={t}><Text>{t}</Text></li>)}</ul>
             </div>
           </div>
         </div>
+      </section>
+
+      <section id="skills" className="wrap section"><div className="panel two">
+        <h2 className="h-sec">Skills</h2>
+        <div className="skills">
+          {skills.map((g) => (
+            <div key={g.group}>
+              <h3>{g.group}</h3>
+              <ul>{g.items.map((i) => <li key={i}>{i}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+      </div></section>
+
+      <section id="experience" className="wrap section">
+        <h2 className="h-sec">Education &amp; experience</h2>
+        <Timeline items={journey} />
       </section>
 
       <section id="projects" className="wrap section">
@@ -81,23 +98,6 @@ export default function Home() {
         <div className="grid grid-2">
           {papers.map((p) => <ProjectCard key={p.slug} p={p} base="research" />)}
         </div>
-      </section>
-
-      <section id="skills" className="wrap section"><div className="panel two">
-        <h2 className="h-sec">Skills</h2>
-        <div className="skills">
-          {skills.map((g) => (
-            <div key={g.group}>
-              <h3>{g.group}</h3>
-              <ul>{g.items.map((i) => <li key={i}>{i}</li>)}</ul>
-            </div>
-          ))}
-        </div>
-      </div></section>
-
-      <section id="experience" className="wrap section">
-        <h2 className="h-sec">Education &amp; experience</h2>
-        <Timeline items={journey} />
       </section>
 
       <section id="awards" className="wrap section">

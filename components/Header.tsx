@@ -8,10 +8,11 @@ export function Header() {
         <Link href="/" className="brand">{site.shortName}</Link>
         <nav aria-label="Main">
           <Link href="/#about">About</Link>
+          <Link href="/#skills">Skills</Link>
+          <Link href="/#experience">Journey</Link>
           <Link href="/#projects">Projects</Link>
           <Link href="/#research">Research</Link>
           <Link href="/#awards">Awards</Link>
-          <Link href="/#skills">Skills</Link>
           <Link href="/#contact">Contact</Link>
         </nav>
       </div>

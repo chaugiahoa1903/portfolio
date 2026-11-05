@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { Journey } from "@/content/site";
+import { Text } from "@/components/Text";
 
 /** Timeline hai bên: đường dọc "vẽ" dần theo thanh cuộn, các thẻ trượt vào khi tới tầm nhìn. */
 export default function Timeline({ items }: { items: Journey[] }) {
@@ -46,7 +47,7 @@ export default function Timeline({ items }: { items: Journey[] }) {
           <span className="tl-dot" aria-hidden />
           <div className="tl-card tl-side">
             <h4>{it.kind === "Education" ? "Highlights" : "What I did"}</h4>
-            <ul>{it.points.map((t) => <li key={t}>{t}</li>)}</ul>
+            <ul>{it.points.map((t) => <li key={t}><Text>{t}</Text></li>)}</ul>
           </div>
         </div>
       ))}
