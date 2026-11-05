@@ -204,5 +204,8 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
 .dd-note { display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
 .cert { margin: 48px 0 0; }
 .cert img { width: 100%; max-width: 640px; height: auto; border: 1px solid var(--line); border-radius: 12px; display: block; }
+.fig { margin: 40px 0 0; }
+.fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; display: block; }
+.fig figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
 .cert figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
 @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }

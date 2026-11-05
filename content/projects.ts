@@ -10,6 +10,7 @@ export type Project = {
   authors?: string[]; // chỉ cho paper
   authorsNote?: string;
   certificate?: { src: string; caption: string };
+  figures?: { src: string; caption: string; width: number; height: number }[]; // ảnh minh hoạ thêm cho project
   year: string;
   cover: string; // ảnh trong public/projects/
   featured?: boolean; // hiện ở trang chủ; còn lại nằm trong gallery
@@ -62,11 +63,27 @@ export const projects: Project[] = [
       { label: "Backend", value: "Next.js route handler on Vercel" },
       { label: "Database", value: "Neon Postgres" },
       { label: "Export", value: "PDF with embedded Vietnamese font" },
+      { label: "Result", value: "Winner, 2026" },
     ],
     results: [
+      "Our team won The Springboard Challenge (FWD Summer Internship 2026).",
       "A working end-to-end prototype, deployed as its own app: profile → timeline → recommendations → PDF → saved lead with consent → advisor call-back list. Try it with made-up data; demo records are deleted automatically after a few days.",
     ],
     stack: ["React", "Next.js", "Vercel", "Postgres (Neon)", "jsPDF"],
+    figures: [
+      {
+        src: "/projects/fwd-foresight-key-visual.jpg",
+        caption: "Campaign key visual designed by our team: \"Từ Hỏoo? Thành Ồoo!\" and the mascot Chú Ô.",
+        width: 1600,
+        height: 900,
+      },
+      {
+        src: "/projects/fwd-foresight-winners.jpg",
+        caption: "The team at the final of The Springboard Challenge (FWD Summer Internship 2026), where we won.",
+        width: 1600,
+        height: 1083,
+      },
+    ],
     links: [
       { label: "Try the live demo", href: site.foresight.demo, primary: true },
       { label: "Source on GitHub", href: site.foresight.repo },

@@ -106,6 +106,14 @@ export function CaseStudy({ p, kind, backHref, backLabel, next }: Props) {
             </div>
           </div>
 
+          {p.figures?.map((f) => (
+            <figure className="fig" key={f.src}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={f.src} alt={f.caption} width={f.width} height={f.height} loading="lazy" />
+              <figcaption>{f.caption}</figcaption>
+            </figure>
+          ))}
+
           {p.certificate && (
             <figure className="cert">
               {/* eslint-disable-next-line @next/next/no-img-element */}
