@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import HeaderTools from "@/components/HeaderTools";
 
 export function Header() {
   return (
     <header className="header">
       <div className="wrap header-in">
-        <Link href="/" className="brand">{site.shortName}</Link>
+        <Link href="/" className="brand" aria-label={site.name}>
+          <span className="logo" aria-hidden="true"><b>GH</b><i /></span>
+          <span>{site.shortName}</span>
+        </Link>
+        <HeaderTools />
         <nav aria-label="Main">
           <Link href="/#about">About</Link>
           <Link href="/#skills">Skills</Link>

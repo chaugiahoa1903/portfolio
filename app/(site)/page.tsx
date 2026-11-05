@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { site, about, skills, journey } from "@/content/site";
 import Timeline from "@/components/Timeline";
+import ScrambleText from "@/components/ScrambleText";
+import Typewriter from "@/components/Typewriter";
+import PixelPhoto from "@/components/PixelPhoto";
 import { credentials } from "@/content/credentials";
 import { CredentialCard } from "@/components/CredentialCard";
 import { projects } from "@/content/projects";
@@ -26,8 +29,9 @@ export default function Home() {
       <section className="hero wrap hero-grid">
         <div className="hero-text">
           <p className="eyebrow">{site.name} · {site.location}</p>
-          <h1>{site.headline}</h1>
+          <h1><ScrambleText text={site.headline} /></h1>
           <div className="panel hero-note">
+            <p className="term"><span className="pr">$</span>focus --now <Typewriter words={["Vietnamese NLP", "credit-risk analytics", "model serving", "decision-support prototypes"]} /></p>
             <p className="lead">{site.intro}</p>
             <p className="open">{site.openTo}</p>
           </div>
@@ -38,10 +42,7 @@ export default function Home() {
           </div>
         </div>
         <div className="hero-side">
-        <figure className="hero-photo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/me.jpg" alt={`${site.name} at the FWD Springboard Challenge graduation ceremony`} width={880} height={1100} />
-        </figure>
+        <PixelPhoto src="/me.jpg" alt={`${site.name} at the FWD Springboard Challenge graduation ceremony`} width={880} height={1100} />
           <ul className="hero-contact" aria-label="Contact">
             <li><a href={`mailto:${links.email}`}>{Ic.mail}<span>{links.email}</span></a></li>
             <li><a href={links.linkedin} target="_blank" rel="noopener noreferrer">{Ic.linkedin}<span>LinkedIn</span></a></li>
