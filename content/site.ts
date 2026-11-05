@@ -19,8 +19,8 @@ export const site = {
   },
   links: {
     github: "https://github.com/chaugiahoa1903",
-    linkedin: "[[https://www.linkedin.com/in/your-handle]]",
-    email: "[[your-email@example.com]]",
+    linkedin: "https://www.linkedin.com/in/h%C3%B2a-ch%C3%A2u-02a77a304/",
+    email: "giahoa990@gmail.com",
     resume: null as string | null, // đặt file vào public/resume.pdf rồi ghi "/resume.pdf"
   },
 };
@@ -28,7 +28,7 @@ export const site = {
 export const about = {
   paragraphs: [
     "I study Data Science at UEH, expecting to graduate in March 2027. I enjoy projects where the hard part is deciding what the right question is, then making the answer usable: a retrieval system that finds the right legal article, or a prototype that shows a customer what a risk would cost them. I have co-authored and presented two conference papers on Vietnamese legal NLP and on serving such models.",
-    "Most of my work is in Python and SQL, with NLP for Vietnamese text as a recurring thread. [[Add one or two sentences about what you want to do next: roles, industries, or a master's abroad.]]",
+    "Most of my work is in Python and SQL, with NLP for Vietnamese text as a recurring thread. After graduating I am looking for data roles where analysis meets real business decisions, such as analytics, credit risk or applied NLP.",
   ],
 };
 

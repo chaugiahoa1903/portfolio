@@ -43,7 +43,7 @@ export const projects: Project[] = [
     type: "Hackathon prototype · full-stack",
     period: "FWD Springboard Challenge, 2026",
     status: "Live demo",
-    role: "[[Your role in the team of 3, e.g. built the front end, the calculation engine, the API and deployment.]]",
+    role: "Built the working prototype and did the market research behind the solution, as part of the team.",
     summary:
       "An advisor-facing tool for insurance conversations. The customer enters their profile, goals and worries; Foresight draws a timeline of their life and shows how a critical illness or loss of income would push each goal back.",
     problem: [
@@ -65,7 +65,6 @@ export const projects: Project[] = [
     ],
     results: [
       "A working end-to-end prototype, deployed as its own app: profile → timeline → recommendations → PDF → saved lead with consent → advisor call-back list. Try it with made-up data; demo records are deleted automatically after a few days.",
-      "[[Add the real outcome if you have one: judges' feedback, ranking, or what the team learned. Leave this out if there is none.]]",
     ],
     stack: ["React", "Next.js", "Vercel", "Postgres (Neon)", "jsPDF"],
     links: [
