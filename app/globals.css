@@ -2,7 +2,7 @@
   --bg: #000000;
   --surface: #0e0e0e;
   --ink: #f4f4f2;
-  --muted: #a1a1a1;
+  --muted: #c6c6c6;
   --line: #2d2d2d;
   --accent: #2cff05;
   --accent2: #bf00ff;
@@ -19,7 +19,7 @@
   --bg: #f3f3f0;
   --surface: #ffffff;
   --ink: #0d0d0d;
-  --muted: #55555a;
+  --muted: #3a3a40;
   --line: #d6d6d0;
   --accent: #0a7d00;
   --accent2: #a000d6;
@@ -531,3 +531,13 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
 
 .term svg.pr { margin-right: 10px; vertical-align: -1px; }
 .card-img img[src*="fwd-foresight-cover"], .chero-img img[src*="fwd-foresight-cover"] { object-position: center; }
+
+/* chữ dễ đọc hơn: đoạn chính dùng gần màu chữ chính, chỉ ghi chú nhỏ mới dùng màu phụ */
+.lead, .about-grid p, .strengths li, .sk-blurb, .sk-where li, .card-kicker, .tl-side ul, .tl-org, .cred-desc, .cred-issuer, .hero-contact a, .hero-contact .hc-plain, .row-kicker, .lead-sm, .sec-sub, .site .sk-where a {
+  color: color-mix(in srgb, var(--ink) 90%, transparent);
+}
+.tl-when, .stat-l, .strip dt, .meta dt, .footer { color: color-mix(in srgb, var(--ink) 75%, transparent); }
+.hero-note .term { color: color-mix(in srgb, var(--ink) 85%, transparent); }
+.header nav a { color: color-mix(in srgb, var(--ink) 80%, transparent); }
+.fig figcaption, .cert figcaption { color: color-mix(in srgb, var(--ink) 88%, transparent); }
+.site .hero-contact a:hover, .site .sk-where a:hover, .header nav a:hover { color: var(--accent); }
