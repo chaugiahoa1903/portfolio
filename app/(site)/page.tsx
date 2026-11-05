@@ -4,6 +4,7 @@ import { projects } from "@/content/projects";
 import { papers } from "@/content/research";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Text, isTodo } from "@/components/Text";
+import NeuralBackground from "@/components/NeuralBackground";
 
 function Contact({ label, value, href }: { label: string; value: string; href?: string }) {
   return isTodo(value) ? (
@@ -17,16 +18,23 @@ export default function Home() {
   const { links } = site;
   return (
     <>
-      <section className="hero wrap">
-        <p className="eyebrow">{site.name} · {site.location}</p>
-        <h1>{site.headline}</h1>
-        <p className="lead">{site.intro}</p>
-        <p className="open">{site.openTo}</p>
-        <div className="cta">
-          <Link href="/#projects" className="btn btn-primary">See the projects</Link>
-          {links.resume && <a href={links.resume} className="btn">Résumé (PDF)</a>}
-          <a href={links.github} className="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <NeuralBackground />
+      <section className="hero wrap hero-grid">
+        <div className="hero-text">
+          <p className="eyebrow">{site.name} · {site.location}</p>
+          <h1>{site.headline}</h1>
+          <p className="lead">{site.intro}</p>
+          <p className="open">{site.openTo}</p>
+          <div className="cta">
+            <Link href="/#projects" className="btn btn-primary">See the projects</Link>
+            {links.resume && <a href={links.resume} className="btn">Résumé (PDF)</a>}
+            <a href={links.github} className="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
+        <figure className="hero-photo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/me.jpg" alt={`${site.name} at the FWD Springboard Challenge graduation ceremony`} width={880} height={1100} />
+        </figure>
       </section>
 
       <section id="projects" className="wrap section">
