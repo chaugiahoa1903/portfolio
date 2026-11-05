@@ -37,7 +37,7 @@ export const projects: Project[] = [
     slug: "fwd-foresight",
     category: "Hackathon",
     year: "2026",
-    cover: "/projects/fwd-foresight.png",
+    cover: "/projects/fwd-foresight-cover.jpg",
     featured: true,
     title: "FWD Foresight",
     kicker: "A life-journey planner that shows a customer which of their goals slip, and by how many years, if a risk hits.",
@@ -72,10 +72,10 @@ export const projects: Project[] = [
     stack: ["React", "Next.js", "Vercel", "Postgres (Neon)", "jsPDF"],
     figures: [
       {
-        src: "/projects/fwd-foresight-key-visual.jpg",
-        caption: "Campaign key visual designed by our team: \"Từ Hỏoo? Thành Ồoo!\" and the mascot Chú Ô.",
-        width: 1600,
-        height: 900,
+        src: "/projects/fwd-foresight.png",
+        caption: "The prototype: a timeline of the customer's goals that shows which ones slip, and by how many years, if a risk hits.",
+        width: 1280,
+        height: 864,
       },
       {
         src: "/projects/fwd-foresight-winners.jpg",

@@ -528,3 +528,6 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
 }
 .role, .sec-sub, .lead-sm { font-family: var(--serif); font-size: 13.5px; }
 .sec-sub::before, .lead-sm::before { content: "> "; color: var(--accent); }
+
+.term svg.pr { margin-right: 10px; vertical-align: -1px; }
+.card-img img[src*="fwd-foresight-cover"], .chero-img img[src*="fwd-foresight-cover"] { object-position: center; }

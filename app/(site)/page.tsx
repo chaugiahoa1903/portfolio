@@ -31,7 +31,7 @@ export default function Home() {
           <p className="eyebrow">{site.name} · {site.location}</p>
           <h1><ScrambleText text={site.headline} /></h1>
           <div className="panel hero-note">
-            <p className="term"><span className="pr">$</span>focus --now <Typewriter words={["Vietnamese NLP", "credit-risk analytics", "model serving", "decision-support prototypes"]} /></p>
+            <p className="term"><svg className="pr" width="20" height="15" viewBox="0 0 7 5" shapeRendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M0 0h1v1H0zM1 1h1v1H1zM2 2h1v1H2zM1 3h1v1H1zM0 4h1v1H0zM4 4h3v1H4z" /></svg>focus --now <Typewriter words={["Vietnamese NLP", "credit-risk analytics", "model serving", "decision-support prototypes"]} /></p>
             <p className="lead">{site.intro}</p>
             <p className="open">{site.openTo}</p>
           </div>
