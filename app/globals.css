@@ -513,3 +513,18 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
 .strip { border-radius: 4px; }
 .footer { font-family: var(--serif); font-size: 12.5px; }
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } .caret { animation: none; } }
+
+/* chú thích ảnh, ghi chú: đúng concept pixel */
+.fig img, .cert img { border: 2px solid var(--line); border-radius: 4px; box-shadow: 6px 6px 0 color-mix(in srgb, var(--accent2) 45%, transparent); }
+.fig figcaption, .cert figcaption, .dd-note, .card-venue {
+  font: 500 12.5px/1.65 var(--serif); color: var(--muted);
+}
+.fig figcaption, .cert figcaption {
+  margin-top: 18px; padding: 10px 14px; border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent2) 14%, transparent), transparent 80%);
+}
+.fig figcaption::before, .cert figcaption::before {
+  content: "FIG >"; font: 400 9px var(--pixel); color: var(--accent); margin-right: 10px; letter-spacing: .04em;
+}
+.role, .sec-sub, .lead-sm { font-family: var(--serif); font-size: 13.5px; }
+.sec-sub::before, .lead-sm::before { content: "> "; color: var(--accent); }
