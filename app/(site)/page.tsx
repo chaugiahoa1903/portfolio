@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { site, about, skills, education, experience } from "@/content/site";
+import { site, about, skills, journey } from "@/content/site";
+import Timeline from "@/components/Timeline";
 import { credentials } from "@/content/credentials";
 import { CredentialCard } from "@/components/CredentialCard";
 import { projects } from "@/content/projects";
@@ -44,6 +45,25 @@ export default function Home() {
         </figure>
       </section>
 
+      <section id="about" className="wrap section">
+        <div className="panel about">
+          <h2 className="h-sec">About me</h2>
+          <p className="about-intro"><Text>{about.intro}</Text></p>
+          <div className="about-grid">
+            <div>
+              <h3>Education</h3>
+              <p><Text>{about.education}</Text></p>
+              <h3>Career goals</h3>
+              <p><Text>{about.goals}</Text></p>
+            </div>
+            <div>
+              <h3>Strengths</h3>
+              <ul className="strengths">{about.strengths.map((t) => <li key={t}>{t}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="projects" className="wrap section">
         <h2 className="h-sec">Selected projects</h2>
         <p className="sec-sub">A focused selection. The full gallery has every project, paper and competition.</p>
@@ -63,13 +83,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="wrap section"><div className="panel two">
-        <h2 className="h-sec">About</h2>
-        <div className="prose">
-          {about.paragraphs.map((t, i) => <p key={i}><Text>{t}</Text></p>)}
-        </div>
-      </div></section>
-
       <section id="skills" className="wrap section"><div className="panel two">
         <h2 className="h-sec">Skills</h2>
         <div className="skills">
@@ -82,31 +95,10 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section id="experience" className="wrap section"><div className="panel two">
-        <h2 className="h-sec">Experience & education</h2>
-        <div className="timeline">
-          {experience.map((e) => (
-            <article key={e.title}>
-              <div className="t-when">{e.when}</div>
-              <div>
-                <h3>{e.title}</h3>
-                <div className="t-org">{e.org}</div>
-                <ul>{e.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
-              </div>
-            </article>
-          ))}
-          {education.map((e) => (
-            <article key={e.title}>
-              <div className="t-when">{e.when}</div>
-              <div>
-                <h3>{e.title}</h3>
-                <div className="t-org">{e.org}</div>
-                <p className="t-note">{e.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div></section>
+      <section id="experience" className="wrap section">
+        <h2 className="h-sec">Education &amp; experience</h2>
+        <Timeline items={journey} />
+      </section>
 
       <section id="awards" className="wrap section">
         <h2 className="h-sec">Certificates &amp; awards</h2>

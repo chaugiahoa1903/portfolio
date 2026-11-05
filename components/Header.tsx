@@ -7,10 +7,10 @@ export function Header() {
       <div className="wrap header-in">
         <Link href="/" className="brand">{site.shortName}</Link>
         <nav aria-label="Main">
+          <Link href="/#about">About</Link>
           <Link href="/#projects">Projects</Link>
           <Link href="/#research">Research</Link>
           <Link href="/#awards">Awards</Link>
-          <Link href="/#about">About</Link>
           <Link href="/#skills">Skills</Link>
           <Link href="/#contact">Contact</Link>
         </nav>

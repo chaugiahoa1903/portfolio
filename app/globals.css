@@ -266,3 +266,68 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 var(
 .seg button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; color: var(--muted); font: 600 14px var(--sans); padding: 9px 15px; border-radius: 10px; cursor: pointer; transition: background .15s, color .15s; }
 .seg button:hover { color: var(--ink); }
 .seg button[aria-pressed="true"] { background: linear-gradient(135deg, #0f766e, #0f5e5a); color: #fff; box-shadow: 0 2px 10px rgba(15,94,90,.35); }
+
+/* About me */
+.panel.about { display: block; }
+.about-intro { font-size: clamp(17px, 2vw, 20px); line-height: 1.6; max-width: 70ch; margin: 14px 0 26px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 48px; }
+.about-grid h3 { font: 600 15px var(--sans); margin: 18px 0 6px; color: var(--accent); }
+.about-grid h3:first-child { margin-top: 0; }
+.about-grid p { margin: 0; color: var(--muted); font-size: 15px; }
+.strengths { list-style: none; margin: 0; padding: 0; }
+.strengths li { position: relative; padding: 5px 0 5px 20px; color: var(--muted); font-size: 15px; }
+.strengths li::before { content: ""; position: absolute; left: 2px; top: 14px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* thanh lọc dự án */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.chipbtn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); font: 600 14px var(--sans); padding: 9px 18px; border-radius: 12px; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.chipbtn:hover { color: var(--ink); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.chipbtn[aria-pressed="true"] { background: linear-gradient(135deg, #0f766e, #0f5e5a); color: #fff; border-color: transparent; box-shadow: 0 2px 10px rgba(15,94,90,.35); }
+.card-rows { display: grid; gap: 18px; margin-top: 26px; }
+.chips + .grid, .chips + .card-rows { margin-top: 26px; }
+.card-list { flex-direction: row; }
+.card-list .card-img { width: 360px; flex: none; aspect-ratio: 16 / 9; align-self: flex-start; }
+@media (max-width: 640px) { .card-list { flex-direction: column; } .card-list .card-img { width: 100%; } }
+
+/* timeline học vấn / kinh nghiệm */
+.tl { position: relative; margin-top: 34px; --p: 1; }
+.tl-line { position: absolute; left: 50%; top: 6px; bottom: 6px; width: 3px; margin-left: -1.5px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.tl-fill { display: block; width: 100%; height: calc(var(--p) * 100%); background: linear-gradient(to bottom, var(--accent), color-mix(in srgb, var(--accent) 45%, transparent)); border-radius: 3px; }
+.tl-item { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: start; padding-bottom: 44px; }
+.tl-item:last-child { padding-bottom: 6px; }
+.tl-dot { grid-column: 2; grid-row: 1; justify-self: center; width: 18px; height: 18px; margin-top: 22px; border-radius: 50%; background: var(--accent); border: 4px solid var(--bg); box-shadow: 0 0 0 2px var(--accent); position: relative; z-index: 1; }
+.tl-card { padding: 22px 24px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line)); background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 13%, var(--surface)), var(--surface) 70%); box-shadow: 0 8px 26px rgba(0,0,0,.10); }
+.tl-main { grid-row: 1; }
+.tl-side { grid-row: 1; margin-top: 34px; }
+.main-left .tl-main { grid-column: 1; text-align: right; }
+.main-left .tl-side { grid-column: 3; }
+.main-right .tl-main { grid-column: 3; }
+.main-right .tl-side { grid-column: 1; text-align: right; }
+.tl-kind { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.tl-main h3 { font: 600 22px/1.25 var(--serif); letter-spacing: -0.01em; margin: 6px 0 4px; }
+.tl-org { color: var(--muted); font-size: 15px; }
+.tl-when { margin-top: 8px; color: var(--muted); font-size: 13.5px; }
+.tl-side h4 { font: 600 15px var(--sans); margin: 0 0 8px; }
+.tl-side ul { list-style: none; margin: 0; padding: 0; color: var(--muted); font-size: 14.5px; }
+.tl-side li { padding: 4px 0; }
+.main-right .tl-side li, .main-left .tl-side li { text-align: left; }
+.main-right .tl-side h4 { text-align: right; }
+/* hiệu ứng hiện dần (chỉ khi JS bật và không giảm chuyển động) */
+.tl.anim .tl-card { opacity: 0; transition: opacity .7s ease, transform .7s ease; }
+.tl.anim .main-left .tl-main, .tl.anim .main-right .tl-side { transform: translateX(-34px); }
+.tl.anim .main-right .tl-main, .tl.anim .main-left .tl-side { transform: translateX(34px); }
+.tl.anim .tl-side { transition-delay: .18s; }
+.tl.anim .tl-dot { transform: scale(0); transition: transform .45s cubic-bezier(.3,1.6,.5,1); }
+.tl.anim .tl-item.in .tl-card { opacity: 1; transform: none; }
+.tl.anim .tl-item.in .tl-dot { transform: scale(1); }
+@media (max-width: 760px) {
+  .tl-line { left: 11px; margin-left: 0; }
+  .tl-item { grid-template-columns: 24px minmax(0, 1fr); column-gap: 14px; }
+  .tl-dot { grid-column: 1; grid-row: 1; margin-top: 24px; width: 16px; height: 16px; }
+  .main-left .tl-main, .main-right .tl-main { grid-column: 2; grid-row: 1; text-align: left; }
+  .main-left .tl-side, .main-right .tl-side { grid-column: 2; grid-row: 2; margin-top: 14px; text-align: left; }
+  .main-right .tl-side h4 { text-align: left; }
+  .tl.anim .tl-card { transform: translateY(26px) !important; }
+  .tl.anim .tl-item.in .tl-card { transform: none !important; }
+}
