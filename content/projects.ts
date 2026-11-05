@@ -23,7 +23,8 @@ export type Project = {
   summary: string;
   problem: string[];
   approach: string[];
-  highlights?: { label: string; value: string }[];
+  highlights?: { label: string; value: string }[]; // số liệu / kết quả nổi bật
+  build?: { label: string; value: string }[]; // các khối kỹ thuật chính
   results: string[];
   stack: string[];
   links: ProjectLink[];
@@ -60,11 +61,13 @@ export const projects: Project[] = [
       "Customers who are not ready to decide can book a call-back. The advisor sees the due date and updates the status from a password-protected page.",
     ],
     highlights: [
-      { label: "Frontend", value: "React, embedded in this Next.js site" },
+      { label: "Result", value: "Winner, 2026" },
+    ],
+    build: [
+      { label: "Frontend", value: "React inside a Next.js app" },
       { label: "Backend", value: "Next.js route handler on Vercel" },
       { label: "Database", value: "Neon Postgres" },
       { label: "Export", value: "PDF with embedded Vietnamese font" },
-      { label: "Result", value: "Winner, 2026" },
     ],
     results: [
       "Our team won The Springboard Challenge (FWD Summer Internship 2026).",

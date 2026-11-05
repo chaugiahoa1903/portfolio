@@ -92,6 +92,13 @@ export function CaseStudy({ p, kind, backHref, backLabel, next }: Props) {
 
                 <h3 className="cs-h"><span className="n">3</span>Approach</h3>
                 <ul>{p.approach.map((t, k) => <li key={k}><Text>{t}</Text></li>)}</ul>
+                {p.build && (
+                  <div className="stats">
+                    {p.build.map((h) => (
+                      <div key={h.label}><div className="stat-v">{h.value}</div><div className="stat-l">{h.label}</div></div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div>
                 <h3 className="cs-h"><span className="n">4</span>Result / Impact</h3>
