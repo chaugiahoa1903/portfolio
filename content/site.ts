@@ -2,7 +2,7 @@
 
 export const site = {
   name: "Châu Gia Hòa",
-  shortName: "Gia Hòa",
+  shortName: "Châu Gia Hòa",
   title: "Châu Gia Hòa — Data Science student",
   description:
     "Final-year Data Science student at UEH working on NLP, analytics and applied AI. Case studies with live demos and code.",
@@ -39,11 +39,51 @@ export const about = {
   ],
 };
 
-export const skills: { group: string; items: string[] }[] = [
-  { group: "Data & analytics", items: ["Python (pandas, scikit-learn)", "SQL (SQL Server)", "Power BI (DAX, Power Query)", "RFM and KMeans segmentation"] },
-  { group: "NLP & retrieval", items: ["Hugging Face Transformers", "PhoBERT, ViDeBERTa, XLM-R", "BM25 + embedding hybrid retrieval", "Local LLMs with Ollama"] },
-  { group: "Big data & serving", items: ["Hadoop/HDFS, PySpark, Spark SQL", "Spark Structured Streaming, Kafka", "Docker Swarm, Nginx, FastAPI serving"] },
-  { group: "Building & shipping", items: ["React, Next.js, Vite", "Serverless APIs, Postgres (Neon)", "Git, LaTeX"] },
+export type SkillGroup = {
+  group: string;
+  blurb: string;
+  tools: string[];
+  where: { text: string; href?: string }[];
+};
+
+export const skills: SkillGroup[] = [
+  {
+    group: "Data & analytics",
+    blurb: "The foundation I use most: querying and cleaning data, then turning it into a segment, a metric or a decision someone can act on.",
+    tools: ["Python (pandas, scikit-learn)", "SQL (SQL Server)", "Power BI (DAX, Power Query)", "RFM and KMeans segmentation", "Jupyter"],
+    where: [
+      { text: "LendingClub: SQL Server and Power BI to separate borrower risk from mix shift", href: "/projects/lendingclub-mix-shift" },
+      { text: "FWD internship: RFM + KMeans customer segmentation and K2 persistency analysis", href: "/#experience" },
+      { text: "Text-to-SQL: question to SQL to Excel on AdventureWorks", href: "/projects/text-to-sql-adventureworks" },
+    ],
+  },
+  {
+    group: "NLP & retrieval",
+    blurb: "Vietnamese text is a recurring thread: comparing language models fairly, and finding the right passage in a large legal corpus.",
+    tools: ["Hugging Face Transformers", "PhoBERT, ViDeBERTa, XLM-R", "BM25 + embedding hybrid retrieval", "Local LLMs with Ollama"],
+    where: [
+      { text: "ICDAM-2026: like-for-like comparison of three Transformers on legal text", href: "/research/legal-text-classification-icdam" },
+      { text: "Thesis: Vietnamese legal document retrieval", href: "/projects/vietnamese-legal-retrieval" },
+      { text: "Text-to-SQL: local LLM generating SQL from Vietnamese questions", href: "/projects/text-to-sql-adventureworks" },
+    ],
+  },
+  {
+    group: "Big data & serving",
+    blurb: "Making a model usable under load: containers, replicas and a load balancer in front of an API.",
+    tools: ["Docker Swarm, Nginx", "FastAPI serving", "PyTorch", "Hadoop/HDFS, PySpark, Spark SQL", "Spark Structured Streaming, Kafka"],
+    where: [
+      { text: "INDEA-2026: Docker Swarm serving measured from 1 to 100 concurrent users", href: "/research/docker-swarm-inference-indea" },
+    ],
+  },
+  {
+    group: "Building & shipping",
+    blurb: "I can take an idea to a working, deployed prototype: interface, API, database and hosting.",
+    tools: ["React, Next.js, Vite", "Serverless APIs", "Postgres (Neon)", "Vercel", "Git, LaTeX"],
+    where: [
+      { text: "FWD Foresight: prototype deployed on Vercel with a Neon database", href: "/projects/fwd-foresight" },
+      { text: "This portfolio: Next.js, deployed on Vercel", href: "/" },
+    ],
+  },
 ];
 
 /** Đường học vấn và kinh nghiệm: thẻ chính bên này, thẻ "Highlights" bên kia (mới nhất ở trên). */
