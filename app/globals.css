@@ -653,3 +653,21 @@ body { background-image: radial-gradient(color-mix(in srgb, var(--ink) 11%, tran
   .tool-btn { height: 36px; min-width: 36px; justify-content: center; }
   .btn, .hero-actions a { min-height: 44px; }
 }
+
+
+/* nút Back: cùng kiểu với nút Gallery / List */
+.site .back, .site .chero .back {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 15px; margin-bottom: 28px;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: var(--surface); color: color-mix(in srgb, var(--ink) 88%, transparent);
+  font: 600 13px var(--serif); text-decoration: none;
+  transition: background .15s, color .15s, box-shadow .15s, transform .1s;
+}
+.site .back:hover, .site .back:focus-visible, .site .chero .back:hover, .site .chero .back:focus-visible {
+  background: var(--fill); color: #000; border-color: #000; box-shadow: 3px 3px 0 var(--accent2);
+}
+.site .back:active { transform: translate(1px, 1px); }
+:root[data-theme="light"] .site .back, :root[data-theme="light"] .site .chero .back { border: 2px solid #0a0a0a; background: #fff; color: #0a0a0a; }
+:root[data-theme="light"] .site .back:hover, :root[data-theme="light"] .site .back:focus-visible,
+:root[data-theme="light"] .site .chero .back:hover, :root[data-theme="light"] .site .chero .back:focus-visible { background: var(--fill); color: #000; box-shadow: 3px 3px 0 #0a0a0a; }
